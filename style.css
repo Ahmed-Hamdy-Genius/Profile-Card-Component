@@ -1,0 +1,170 @@
+/* CSS Reset */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+a {
+  color: inherit;
+  display: inline-block;
+}
+
+button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  border: 0;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-size: 1.6rem;
+  font-family: "Courier New", Courier, monospace;
+}
+
+/* End CSS Reset */
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: rgba(229, 229, 247,0.3);
+  background-image: radial-gradient(rgba(68, 76, 247,0.3) 1px, rgba(229, 229, 247,0.3) 1px);
+  background-size: 1.2rem 1.2rem;
+}
+.card {
+  display: flex;
+  flex-direction: column;
+  border-radius: 1rem;
+  min-width: 35rem;
+  /* I added this line, because of lights line width */
+  max-width: 36.5rem;
+  overflow: hidden;
+  background-color: #fff;
+  box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.2);
+}
+.lights {
+  position: absolute;
+  z-index: 2;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s;
+}
+.bulb-odd {
+  animation: party .5s infinite alternate;
+}
+.bulb-even {
+  animation: party .5s infinite alternate-reverse;
+}
+@keyframes party {
+  from {
+    fill: #FF1111;
+  }
+  to {
+    fill : #F3EA19;
+  }
+  
+}
+.container:has(.lights-input:checked) .lights {
+  opacity: 1;
+  visibility: visible;
+}
+
+.lights-control {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  position: absolute;
+  top: 2rem;
+}
+.lights-label {
+  width: 4.2rem;
+  height: 2.2rem;
+  border-radius: 1.5rem;
+  background-color: #000;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  padding: 0.3rem 0.4rem;
+}
+.lights-label::after {
+  content: "";
+  display: block;
+  width: 1.6rem;
+  height: 1.6rem;
+  background-color: #fff;
+  border-radius: 50%;
+  transition: 0.3s;
+}
+.lights-input {
+  display: none;
+}
+.lights-input:checked + .lights-label {
+  background-color: #fff;
+}
+.lights-input:checked + .lights-label::after {
+  transform: translateX(1.8rem);
+  background-color: green;
+}
+
+.top {
+  height: 10rem;
+  background-color: #e5e5f7;
+  opacity: 0.7;
+  background-image:
+    repeating-radial-gradient(circle at 0 0, transparent 0, #e5e5f7 12px),
+    repeating-linear-gradient(#444cf755, #444cf7);
+}
+.middle {
+  margin-inline: auto;
+  text-align: center;
+  margin-top: -6rem;
+  z-index: 1;
+}
+.pic {
+  width: 12rem;
+  height: 12rem;
+  border-radius: 50%;
+  border: 0.4rem solid #fff;
+}
+.title {
+  font-size: 2.2rem;
+}
+.position {
+  font-size: 1.6rem;
+}
+.bottom {
+  display: flex;
+  margin-top: 3rem;
+  border-top: 0.1rem solid #c4c4c4;
+}
+.column {
+  flex: 1;
+  padding: 1.8rem 1.5rem;
+  text-align: center;
+}
+.column:nth-child(2) {
+  border-inline: 0.1rem solid #c4c4c4;
+}
+.icon {
+  width: 2rem;
+  height: 2rem;
+}
+.username {
+  font-size: 1.2rem;
+}
